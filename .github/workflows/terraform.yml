@@ -45,8 +45,8 @@ jobs:
           aws-region: ap-northeast-1
 
       - id: init
-        run: terraform init -backend-config=${{ needs.Setup.outputs.env }}.tfbackend
+        run: terraform init -backend-config=./envs/${{ needs.Setup.outputs.env }}.tfbackend
 
       - id: apply
-        run: terraform apply -no-color -auto-approve -var-file=${{ needs.Setup.outputs.env }}.tfvars
+        run: terraform apply -no-color -auto-approve -var-file=./envs/${{ needs.Setup.outputs.env }}.tfvars
         continue-on-error: true
