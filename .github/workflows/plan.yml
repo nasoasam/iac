@@ -1,6 +1,5 @@
 name: Terraform Plan
 on:
-  push:
   workflow_dispatch:
   
 jobs:
@@ -45,5 +44,5 @@ jobs:
         run: terraform init -backend-config=./envs/${{ needs.Setup.outputs.env }}.tfbackend
 
       - id: apply
-        run: terraform plan -no-color -auto-approve -var-file=./envs/${{ needs.Setup.outputs.env }}.tfvars
+        run: terraform plan -no-color -var-file=./envs/${{ needs.Setup.outputs.env }}.tfvars
         continue-on-error: true
