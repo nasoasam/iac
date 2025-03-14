@@ -40,13 +40,13 @@ env:
                                                # file, e.g. .aws/task-definition.json
   CONTAINER_NAME: httpd-container           # set this to the name of the container in the
                                                # containerDefinitions section of your task definition
-  AWS_ROLE_ARN: arn:aws:iam::917541004791:instance-profile/IacRole # GitHub　Actions用に作成したIAMロールのARN                                            
+  AWS_ROLE_ARN: arn:aws:iam::917541004791:role/IacRole/ # GitHub　Actions用に作成したIAMロールのARN                                            
 
 jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
-    environment: production
+    #environment: production
     # These permissions are needed to interact with GitHub's OIDC Token endpoint.
     permissions:
       id-token: write
